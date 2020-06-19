@@ -3,10 +3,15 @@ import Child from "./Child";
 import { NameContext } from "./Context";
 
 const Parent = () => {
-  const value = useContext(NameContext);
+  const [name, setName] = useContext(NameContext);
   return (
     <div>
-      <h1>Parent Component {value}</h1>
+      <h1>Parent Component</h1>
+      {name.map((name) => (
+        <li>
+          {name.firstName} {name.lastName}
+        </li>
+      ))}
       <Child />
     </div>
   );
